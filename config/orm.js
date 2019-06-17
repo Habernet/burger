@@ -6,12 +6,13 @@ const connection = require('./connection');
 // * `insertOne()`
 // * `updateOne()`
 
-let selectAll = () => {
+let selectAll = (table) => {
     // read everything from the DB and return it. This is for page load..
-    connection.query('SELECT * FROM ?', ['burgers'], (err, data) => {
+    connection.query('SELECT * FROM ?', [table], (err, data) => {
         if (err) { console.error(err.stack)};
-        // console log the data and then return the response
+        // console log the data and then return the response to the callback
         console.log(data);
+        cb(data);
     });
 };
 let insertOne = (burger) => {
@@ -21,6 +22,7 @@ let insertOne = (burger) => {
         if (err) {console.error(err.stack)};
         // console log the data and then return the response
         console.log(res);
+        cb(res);
     });
 };
 let updateOne = (burger) => {
@@ -29,6 +31,7 @@ let updateOne = (burger) => {
         if (err) {console.error(err.stack)};
         // console log the response and then return it
         console.log(res);
+        cb(res);
     });
 };
 
