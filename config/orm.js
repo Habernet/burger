@@ -30,5 +30,10 @@ let updateOne = (burger) => {
         // console log the response and then return it
         console.log(res);
     });
+};
 
+module.exports = {
+    selectAll = selectAll,
+    insertOne = insertOne,
+    updateOne = updateOne
 };
