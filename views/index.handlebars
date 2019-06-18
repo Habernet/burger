@@ -1,1 +1,19 @@
 {{!-- This is where we will write all of the main page...this is a one page application. --}}
+<main>
+    <h1>Eat Da Burgers!</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+
+            </div>
+            <div class="col-sm-6">
+                {{#each burgers}}
+                    <div>
+                        <h1>{{this.burger_name}}</h1>
+                        <h2>{{this.devoured}}</h2>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</main>
