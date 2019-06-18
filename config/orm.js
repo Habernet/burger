@@ -6,7 +6,7 @@ const connection = require('./connection');
 // * `insertOne()`
 // * `updateOne()`
 
-let selectAll = (table) => {
+let selectAll = (table, cb) => {
     // read everything from the DB and return it. This is for page load..
     connection.query('SELECT * FROM ?', [table], (err, data) => {
         if (err) { console.error(err.stack)};
@@ -15,7 +15,7 @@ let selectAll = (table) => {
         cb(data);
     });
 };
-let insertOne = (burger) => {
+let insertOne = (burger, cb) => {
     // Insert a new entry into the DB..this will be for when the user types something into the box and hits submit.
     let query = 'INSERT INTO burgers(burger_name, devoured) VALUES (??, ??)'
     connection.query(query, [burger.burger_name, burger.devoured], (err, res) => {
@@ -25,7 +25,7 @@ let insertOne = (burger) => {
         cb(res);
     });
 };
-let updateOne = (burger) => {
+let updateOne = (burger, cb) => {
     let query = `UPDATE burgers SET devoured = ?? WHERE id = ??`;
     connection.query(query, [burger.devoured, burger.id], (err, res) => {
         if (err) {console.error(err.stack)};

@@ -23,7 +23,9 @@ let burger = {
         });
     },
     updateOne: (burger, cb) => {
-        cb(res);
+        orm.updateOne(burger, (res) => {
+            cb(res);
+        });
     }
 };
 
