@@ -4,11 +4,11 @@ let mysql = require('mysql');
 // Create the configuration parameters
 // Might change when hosting this on heroku!
 let connection = mysql.createConnection({
-    host: "us-cdbr-iron-east-02.cleardb.net",
-    port: heroku_ad89e85ffcdc858,
-    user: 'b9efb7a0529004',
+    host: "pwcspfbyl73eccbn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    port: 3306,
+    user: 'mmeknf8wkm51mevf',
     password: '774c7f6e',
-    database: 'burgers_db'
+    database: 'k807ms7rpuyu2tt2'
 })
 
 //Make the connection
@@ -21,5 +21,3 @@ connection.connect((err) => {
 
 //Export the connection object for use with the ORM
 module.exports = connection;
-
-// mysql -h us-cdbr-iron-east-02.cleardb.net -u b9efb7a0529004 -p heroku_ad89e85ffcdc858 < schema.sql

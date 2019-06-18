@@ -3,9 +3,13 @@ let express = require('express');
 let app = express();
 let PORT = process.env.PORT || 8080;
 
+// Set handlebars as the view engine
+let exphbs = require('express-handlebars');
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 // Allow for serving of static files: CSS, JS, etc
 app.use(express.static('./public'));
