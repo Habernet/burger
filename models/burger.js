@@ -22,8 +22,8 @@ let burger = {
             cb(res);
         });
     },
-    updateOne: (burger, cb) => {
-        orm.updateOne(burger, (res) => {
+    updateOne: (burgerID, cb) => {
+        orm.updateOne(burgerID, (res) => {
             cb(res);
         });
     }
