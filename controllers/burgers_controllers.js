@@ -7,7 +7,7 @@ const burger = require('../models/burger');
 let router = express.Router();
 
 // root route
-router.get('/', (res) => {
+router.get('/', (req, res) => {
     // use handlebars to serve up the index.html
     // This will use the burger model to get all burgers from the DB and then the front end will place them in their appropriate locations
     burger.all((data) => {

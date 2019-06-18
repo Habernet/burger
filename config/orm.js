@@ -8,10 +8,9 @@ const connection = require('./connection');
 
 let selectAll = (table, cb) => {
     // read everything from the DB and return it. This is for page load..
-    connection.query('SELECT * FROM ?', [table], (err, data) => {
+    connection.query('SELECT * FROM burgers',  (err, data) => {
         if (err) { console.error(err.stack)};
         // console log the data and then return the response to the callback
-        console.log(data);
         cb(data);
     });
 };
@@ -36,7 +35,7 @@ let updateOne = (entryToUpdate, cb) => {
 };
 
 module.exports = {
-    selectAll = selectAll,
-    insertOne = insertOne,
-    updateOne = updateOne
+    selectAll : selectAll,
+    insertOne : insertOne,
+    updateOne : updateOne
 };
