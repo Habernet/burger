@@ -7,7 +7,7 @@ const burger = require('../models/burger');
 let router = express.Router();
 
 // root route
-router.get('/', (req, res) => {
+router.get('/', (res) => {
     // use handlebars to serve up the index.html
     // This will use the burger model to get all burgers from the DB and then the front end will place them in their appropriate locations
     burger.all((data) => {
@@ -37,11 +37,11 @@ router.put('/api/burgers/:id', (req, res) => {
     // Capture the burger they are looking to update. This will be sent to use via frontside JS, using data-id and event listeners//ajax calls.
     let burgerID = req.params.id;
     // Use this ID to update the DB, changing the devoured status to true. Because we will never undevour a burger, this is all the functionality we need here.
-    burger.updateOne(burgerID, (res) => {
+    burger.updateOne(burgerID, (result) => {
         // we now have the response
-        console.log(res);
+        console.log(result);
         // Check to see if the response contained changedRows...this means it was successful in updating the DB
-        if (res.changedRows == 0) {
+        if (result.changedRows == 0) {
             console.log('ID not found! 404');
             return res.status(404).end();
         } else {
@@ -51,7 +51,7 @@ router.put('/api/burgers/:id', (req, res) => {
 });
 
 // catch all...route to root route
-router.get('*', (req, res) => {
+router.get('*', (res) => {
     // redirects to index.html
     res.redirect('/');
 });
