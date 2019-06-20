@@ -1,14 +1,17 @@
 {{!-- This is where we will write all of the main page...this is a one page application. --}}
 <main>
-    <h1>Eat Da Burgers!</h1>
+    <div class="container">
+        <h1 class="centered">Eat Da Burgers!</h1>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
                 {{#each burgers}}
                 {{#unless this.devoured}}
                 <div class="burger">
-                    <h1>{{this.burger_name}}</h1>
-                    <h2>{{this.devoured}}</h2>
+                    <form action="/api/burgers/{{this.id}}?_method=PUT" method="post">
+                        <button type="submit" class="burger-ready">{{this.burger_name}}</button>
+                    </form>
                 </div>
                 {{/unless}}
                 {{/each}}
@@ -23,6 +26,19 @@
                 {{/if}}
                 {{/each}}
             </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="add-section">
+                    <h1>Add a burger!</h1>
+                    <form action="/api/burgers" method="post">
+                        <input type="text" name="burger_name" id="name">
+                        <button type="submit" class="submit-burger"> Add my burger! </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 </main>

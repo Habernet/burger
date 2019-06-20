@@ -16,20 +16,18 @@ let selectAll = (table, cb) => {
 };
 let insertOne = (entry, cb) => {
     // Insert a new entry into the DB..this will be for when the user types something into the box and hits submit.
-    let query = 'INSERT INTO burgers(burger_name, devoured) VALUES (??, ??)'
-    connection.query(query, [entry.burger_name, entry.devoured], (err, res) => {
+    let query = 'INSERT INTO burgers(burger_name, devoured) VALUES (?, ?)'
+    connection.query(query, [entry, 0], (err, res) => {
         if (err) {console.error(err.stack)};
         // console log the data and then return the response
         console.log(res);
         cb(res);
     });
 };
-let updateOne = (entryToUpdate, cb) => {
-    let query = `UPDATE burgers SET devoured = ?? WHERE id = ??`;
-    connection.query(query, ['true', entryToUpdate.id], (err, res) => {
+let updateOne = (idToUpdate, cb) => {
+    let query = `UPDATE burgers SET devoured = ? WHERE id = ?`;
+    connection.query(query, [1, idToUpdate], (err, res) => {
         if (err) {console.error(err.stack)};
-        // console log the response and then return it
-        console.log(res);
         cb(res);
     });
 };

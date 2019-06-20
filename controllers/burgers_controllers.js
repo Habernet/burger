@@ -3,8 +3,11 @@ const express = require('express');
 // Bring in burger.js so we can access our model and use our DB 
 const burger = require('../models/burger');
 
+
+
 // Create our router and then create our routes
 let router = express.Router();
+
 
 // root route
 router.get('/', (req, res) => {
@@ -24,18 +27,20 @@ router.get('/', (req, res) => {
 router.post('/api/burgers', (req, res) => {
     // This will be the end point that will be hit when the user adds a new burger.
     // Capture the burger in order to update the DB with it.
-    let burgerToAdd = req.body;
+    let burgerToAdd = req.body.burger_name;
+    console.log("Burger to add: " + burgerToAdd);
     burger.insertOne(burgerToAdd, (result) => {
-        // res.redirect('/');
+        res.redirect('/');
     });
 });
 
 // api put
 router.put('/api/burgers/:id', (req, res) => {
     //This will be the end point that will be hit when the user eats a burger. We will be using the burger model to update the DB and change the burger to devoured.
-
     // Capture the burger they are looking to update. This will be sent to use via frontside JS, using data-id and event listeners//ajax calls.
     let burgerID = req.params.id;
+    console.log("YOU ARE PUTTING! ID: " + burgerID);
+
     // Use this ID to update the DB, changing the devoured status to true. Because we will never undevour a burger, this is all the functionality we need here.
     burger.updateOne(burgerID, (result) => {
         // we now have the response
