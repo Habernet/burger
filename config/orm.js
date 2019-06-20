@@ -19,8 +19,6 @@ let insertOne = (entry, cb) => {
     let query = 'INSERT INTO burgers(burger_name, devoured) VALUES (?, ?)'
     connection.query(query, [entry, 0], (err, res) => {
         if (err) {console.error(err.stack)};
-        // console log the data and then return the response
-        console.log(res);
         cb(res);
     });
 };

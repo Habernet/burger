@@ -5,7 +5,8 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
                 {{#each burgers}}
                 {{#unless this.devoured}}
                 <div class="burger">
@@ -16,12 +17,12 @@
                 {{/unless}}
                 {{/each}}
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5">
                 {{#each burgers}}
                 {{#if this.devoured}}
-                <div class="burger">
-                    <h1>{{this.burger_name}}</h1>
-                    <h2>{{this.devoured}}</h2>
+                <div class="devoured">
+                    <h3>{{this.burger_name}}</h3>
                 </div>
                 {{/if}}
                 {{/each}}
@@ -31,11 +32,13 @@
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
                 <div class="add-section">
-                    <h1>Add a burger!</h1>
-                    <form action="/api/burgers" method="post">
-                        <input type="text" name="burger_name" id="name">
-                        <button type="submit" class="submit-burger"> Add my burger! </button>
-                    </form>
+                    <h1 class="centered">Add a burger!</h1>
+                    <div class="centered">
+                        <form action="/api/burgers" method="post">
+                            <input type="text" name="burger_name" id="name">
+                            <button type="submit" class="btn btn-dark submit-burger"> Add my burger! </button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-3"></div>
