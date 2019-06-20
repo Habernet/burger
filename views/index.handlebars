@@ -4,14 +4,23 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <div class="burger">
+                    <h1>{{this.burger_name}}</h1>
+                    <h2>{{this.devoured}}</h2>
+                </div>
+                {{/unless}}
+                {{/each}}
             </div>
             <div class="col-sm-6">
                 {{#each burgers}}
-                    <div>
-                        <h1>{{this.burger_name}}</h1>
-                        <h2>{{this.devoured}}</h2>
-                    </div>
+                {{#if this.devoured}}
+                <div class="burger">
+                    <h1>{{this.burger_name}}</h1>
+                    <h2>{{this.devoured}}</h2>
+                </div>
+                {{/if}}
                 {{/each}}
             </div>
         </div>

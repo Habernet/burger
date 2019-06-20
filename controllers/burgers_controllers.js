@@ -26,7 +26,7 @@ router.post('/api/burgers', (req, res) => {
     // Capture the burger in order to update the DB with it.
     let burgerToAdd = req.body;
     burger.insertOne(burgerToAdd, (result) => {
-        res.redirect('/');
+        // res.redirect('/');
     });
 });
 
@@ -45,7 +45,7 @@ router.put('/api/burgers/:id', (req, res) => {
             console.log('ID not found! 404');
             return res.status(404).end();
         } else {
-            res.redirect('/');
+            // res.redirect('/');
         };
     });
 });
@@ -53,7 +53,7 @@ router.put('/api/burgers/:id', (req, res) => {
 // catch all...route to root route
 router.get('*', (res) => {
     // redirects to index.html
-    res.redirect('/');
+    // res.redirect('/');
 });
 
 module.exports = router;
