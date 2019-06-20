@@ -1,31 +1,27 @@
 .burger {
-    border: 5px solid black;
     margin: 10px;
+    padding: 10px;
     background-color: antiquewhite;
-    height: 75px;
+    height: 180px;
     width: 200px;
+    text-align: center;
+    display: inline-block;
 }
 
 .devoured {
-    border: 5px solid black;
     margin: 10px;
-    height: 75px;
+    padding: 10px;
+    height: 135px;
     width: 200px;
     opacity: 0.4;
     filter: alpha(opacity=40);
     background-color: #000;
+    text-align: center;
+    display: inline-block;
 }
 
-.burger-ready {
 
-}
-
-.submit-burger {
-    
-}
-
-main {
-    margin: 25px;
+body {
     background-color: darkolivegreen;
 }
 

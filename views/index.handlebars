@@ -1,17 +1,24 @@
 {{!-- This is where we will write all of the main page...this is a one page application. --}}
 <main>
     <div class="container">
-        <h1 class="centered">Eat Da Burgers!</h1>
-    </div>
-    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                {{!-- Burger image --}}
+                <h1 class="centered">Eat Da Burgers!</h1>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-5">
                 {{#each burgers}}
                 {{#unless this.devoured}}
                 <div class="burger">
+                    <img src="./assets/images/burger.jpg" alt="Burger!">
+                    <h4>{{this.burger_name}}</h4>
                     <form action="/api/burgers/{{this.id}}?_method=PUT" method="post">
-                        <button type="submit" class="burger-ready">{{this.burger_name}}</button>
+                        <button type="submit" class="burger-ready">EAT ME</button>
                     </form>
                 </div>
                 {{/unless}}
@@ -22,7 +29,8 @@
                 {{#each burgers}}
                 {{#if this.devoured}}
                 <div class="devoured">
-                    <h3>{{this.burger_name}}</h3>
+                    <img src="./assets/images/eaten.jpg" alt="Burger!">
+                    <h4>{{this.burger_name}}</h4>
                 </div>
                 {{/if}}
                 {{/each}}
@@ -35,7 +43,7 @@
                     <h1 class="centered">Add a burger!</h1>
                     <div class="centered">
                         <form action="/api/burgers" method="post">
-                            <input type="text" name="burger_name" id="name">
+                            <input type="text" name="burger_name" id="name" required>
                             <button type="submit" class="btn btn-dark submit-burger"> Add my burger! </button>
                         </form>
                     </div>
