@@ -10,6 +10,7 @@ let PORT = process.env.PORT || 8080;
 app.use(express.static('public'));
 
 
+
 // Set handlebars as the view engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
