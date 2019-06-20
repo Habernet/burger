@@ -17,8 +17,6 @@ router.get('/', (req, res) => {
         let hbsNeedsObject = {
             burgers: data
         };
-        // See what the object looks like so we can send it to HBS to render onto the page.
-        console.log(hbsNeedsObject);
         res.render('index', hbsNeedsObject);
     });
 });
@@ -50,7 +48,7 @@ router.put('/api/burgers/:id', (req, res) => {
             console.log('ID not found! 404');
             return res.status(404).end();
         } else {
-            // res.redirect('/');
+            res.redirect('/');
         };
     });
 });
@@ -58,7 +56,7 @@ router.put('/api/burgers/:id', (req, res) => {
 // catch all...route to root route
 router.get('*', (res) => {
     // redirects to index.html
-    // res.redirect('/');
+    res.redirect('/');
 });
 
 module.exports = router;
