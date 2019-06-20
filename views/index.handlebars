@@ -16,7 +16,7 @@
                 {{#unless this.devoured}}
                 <div class="burger">
                     <img src="./assets/images/burger.jpg" alt="Burger!">
-                    <h4>{{this.burger_name}}</h4>
+                    <p>{{this.burger_name}}</p>
                     <form action="/api/burgers/{{this.id}}?_method=PUT" method="post">
                         <button type="submit" class="burger-ready btn btn-secondary btn-sm">EAT ME</button>
                     </form>
@@ -30,7 +30,7 @@
                 {{#if this.devoured}}
                 <div class="devoured">
                     <img src="./assets/images/eaten.jpg" alt="Burger!">
-                    <h4>{{this.burger_name}}</h4>
+                    <p>{{this.burger_name}}</p>
                 </div>
                 {{/if}}
                 {{/each}}
